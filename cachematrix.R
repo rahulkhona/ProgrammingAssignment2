@@ -1,7 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
+## capability to cache expensive function resutls
+## so that multiple invocations don't compute the results again
 
-## Write a short comment describing this function
+## create a function that is capable of caching matrix inversion results
+## and return them again when invoked without modification to the data
+## the function returns a list with 4 methods to set data, get data, compute
+## inverse and return inverse. It uses lexical scoping to cache data and
+## leverages <<- operator to update the cache in parent scope.
 
 makeCacheMatrix <- function(x = matrix()) {
   inverse <- NULL
@@ -18,7 +22,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## return the cached inverse result and if nothing is cached
+## compute the inverse, cache it and return the results.
 
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
